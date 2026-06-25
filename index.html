@@ -1022,6 +1022,123 @@
     #page-bookkeeping .bk-cta-title { font-family: "Constantia","Georgia",serif; font-size: clamp(32px,4vw,52px); font-weight: 400; color: var(--white); line-height: 1.05; margin-bottom: 16px; }
     #page-bookkeeping .bk-cta-title span { color: var(--green); font-style: italic; }
     #page-bookkeeping .bk-cta-sub { font-size: 14px; color: var(--muted); line-height: 1.8; margin-bottom: 36px; }
+
+    /* ── MOBILE HAMBURGER ── */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+      z-index: 300;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--white);
+      transition: all 0.3s ease;
+      transform-origin: center;
+    }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* Mobile menu overlay */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 72px; left: 0; right: 0; bottom: 0;
+      background: rgba(6,14,30,0.98);
+      backdrop-filter: blur(16px);
+      z-index: 150;
+      overflow-y: auto;
+      padding: 32px 32px 60px;
+      flex-direction: column;
+      gap: 0;
+      transform: translateX(100%);
+      transition: transform 0.35s ease;
+    }
+    .mobile-menu.open {
+      display: flex;
+      transform: translateX(0);
+    }
+
+    /* Mobile menu items */
+    .mob-item {
+      border-bottom: 1px solid var(--border);
+    }
+    .mob-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 0;
+      font-family: 'Constantia','Georgia',serif;
+      font-size: 20px;
+      color: var(--white);
+      cursor: pointer;
+      background: none;
+      border: none;
+      width: 100%;
+      text-align: left;
+      transition: color 0.2s;
+    }
+    .mob-link:hover, .mob-link.active { color: var(--green); }
+    .mob-link .mob-arrow {
+      font-size: 12px;
+      color: var(--muted);
+      transition: transform 0.3s;
+    }
+    .mob-link.sub-open .mob-arrow { transform: rotate(90deg); color: var(--green); }
+
+    /* Mobile submenu */
+    .mob-submenu {
+      display: none;
+      flex-direction: column;
+      padding: 0 0 12px 16px;
+      gap: 0;
+    }
+    .mob-submenu.open { display: flex; }
+    .mob-sub-link {
+      padding: 14px 0;
+      font-family: 'Constantia','Georgia',serif;
+      font-size: 16px;
+      color: var(--muted);
+      cursor: pointer;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      background: none;
+      border-left: none;
+      border-right: none;
+      border-top: none;
+      text-align: left;
+      width: 100%;
+      transition: color 0.2s;
+    }
+    .mob-sub-link:last-child { border-bottom: none; }
+    .mob-sub-link:hover { color: var(--green); }
+
+    /* Mobile CTA */
+    .mob-cta {
+      margin-top: 32px;
+      padding: 16px 0;
+      font-family: 'Constantia','Georgia',serif;
+      font-size: 16px;
+      color: var(--green);
+      border: 1px solid var(--green);
+      text-align: center;
+      cursor: pointer;
+      background: none;
+      width: 100%;
+      transition: background 0.2s, color 0.2s;
+    }
+    .mob-cta:hover { background: var(--green); color: var(--navy-dark); }
+
+    @media (max-width: 900px) {
+      .nav-hamburger { display: flex; }
+      .nav-links { display: none !important; }
+    }
   </style>
 </head>
 <body>
@@ -1036,6 +1153,45 @@
     </svg>
     <span class="nav-wordmark">CentOps Consulting</span>
   </div>
+  <button class="nav-hamburger" id="hamburger" onclick="toggleMobileMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobile-menu">
+
+    <div class="mob-item">
+      <button class="mob-link" onclick="mobileNav('main','about')">About</button>
+    </div>
+
+    <div class="mob-item">
+      <button class="mob-link" onclick="mobileNav('main','services')">Services</button>
+    </div>
+
+    <div class="mob-item">
+      <button class="mob-link" id="mob-solutions-toggle" onclick="toggleMobSub('mob-solutions', this)">
+        Solutions <span class="mob-arrow">›</span>
+      </button>
+      <div class="mob-submenu" id="mob-solutions">
+        <button class="mob-sub-link" onclick="mobileNav('shopify')">Odoo × Shopify</button>
+        <button class="mob-sub-link" onclick="mobileNav('restaurant')">Restaurant Management</button>
+        <button class="mob-sub-link" onclick="mobileNav('poultry')">Poultry Management</button>
+        <button class="mob-sub-link" onclick="mobileNav('slaughter')">Slaughter House</button>
+        <button class="mob-sub-link" onclick="mobileNav('retail')">Retail &amp; POS</button>
+      </div>
+    </div>
+
+    <div class="mob-item">
+      <button class="mob-link" onclick="mobileNav('impl')">Implementation</button>
+    </div>
+
+    <div class="mob-item">
+      <button class="mob-link" onclick="mobileNav('main','why')">Why Us</button>
+    </div>
+
+    <button class="mob-cta" onclick="mobileNav('main','cta')">Get in Touch</button>
+  </div>
+
   <div class="nav-links">
     <button class="nav-page-link" onclick="showPage('main','about')">About</button>
     <button class="nav-page-link" onclick="showPage('main','services')">Services</button>
@@ -1639,6 +1795,48 @@ function initShopifyCanvas() {
   }
   window.addEventListener('resize',resize);
   resize(); draw();
+}
+
+
+/* ── Mobile menu ── */
+function toggleMobileMenu() {
+  const menu = document.getElementById('mobile-menu');
+  const btn = document.getElementById('hamburger');
+  const isOpen = menu.classList.contains('open');
+  if(isOpen) {
+    menu.classList.remove('open');
+    btn.classList.remove('open');
+    document.body.style.overflow = '';
+  } else {
+    menu.classList.add('open');
+    btn.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+}
+
+function closeMobileMenu() {
+  const menu = document.getElementById('mobile-menu');
+  const btn = document.getElementById('hamburger');
+  menu.classList.remove('open');
+  btn.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function toggleMobSub(id, btn) {
+  const sub = document.getElementById(id);
+  const isOpen = sub.classList.contains('open');
+  // Close all submenus first
+  document.querySelectorAll('.mob-submenu').forEach(s => s.classList.remove('open'));
+  document.querySelectorAll('.mob-link').forEach(b => b.classList.remove('sub-open'));
+  if(!isOpen) {
+    sub.classList.add('open');
+    btn.classList.add('sub-open');
+  }
+}
+
+function mobileNav(page, anchor) {
+  closeMobileMenu();
+  setTimeout(() => { showPage(page, anchor); }, 300);
 }
 
 // Init on load
