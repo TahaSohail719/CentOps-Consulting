@@ -1054,13 +1054,11 @@
       z-index: 250;
       padding: 0;
       flex-direction: column;
-      transform: translateX(100%);
-      transition: transform 0.38s cubic-bezier(0.4, 0, 0.2, 1);
-      display: flex;
+      display: none;
       overflow: hidden;
     }
     .mobile-menu.open {
-      transform: translateX(0);
+      display: flex;
     }
     /* Menu header */
     .mob-header {
@@ -1844,17 +1842,14 @@ function initShopifyCanvas() {
 function toggleMobileMenu() {
   const menu = document.getElementById('mobile-menu');
   const btn = document.getElementById('hamburger');
-  const backdrop = document.getElementById('mob-backdrop');
   const isOpen = menu.classList.contains('open');
   if(isOpen) {
     menu.classList.remove('open');
     btn.classList.remove('open');
-    backdrop.classList.remove('open');
     document.body.style.overflow = '';
   } else {
     menu.classList.add('open');
     btn.classList.add('open');
-    backdrop.classList.add('open');
     document.body.style.overflow = 'hidden';
   }
 }
@@ -1862,10 +1857,8 @@ function toggleMobileMenu() {
 function closeMobileMenu() {
   const menu = document.getElementById('mobile-menu');
   const btn = document.getElementById('hamburger');
-  const backdrop = document.getElementById('mob-backdrop');
   menu.classList.remove('open');
   btn.classList.remove('open');
-  backdrop.classList.remove('open');
   document.body.style.overflow = '';
 }
 
