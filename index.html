@@ -1195,42 +1195,6 @@
     <span></span><span></span><span></span>
   </button>
 
-  <!-- Mobile Menu Full Screen Drawer -->
-  <div class="mobile-menu" id="mobile-menu">
-    <!-- Header -->
-    <div class="mob-header">
-      <span class="mob-header-logo">CentOps Consulting</span>
-      <button class="mob-close" onclick="closeMobileMenu()">✕</button>
-    </div>
-    <!-- Nav items centered vertically -->
-    <div class="mob-body">
-      <div class="mob-item">
-        <button class="mob-link" onclick="mobileNav('main','about')">About</button>
-      </div>
-      <div class="mob-item">
-        <button class="mob-link" onclick="mobileNav('main','services')">Services</button>
-      </div>
-      <div class="mob-item">
-        <button class="mob-link" id="mob-solutions-toggle" onclick="toggleMobSub('mob-solutions', this)">
-          Solutions <span class="mob-arrow">›</span>
-        </button>
-        <div class="mob-submenu" id="mob-solutions">
-          <button class="mob-sub-link" onclick="mobileNav('shopify')">Odoo × Shopify</button>
-          <button class="mob-sub-link" onclick="mobileNav('restaurant')">Restaurant Management</button>
-          <button class="mob-sub-link" onclick="mobileNav('poultry')">Poultry Management</button>
-          <button class="mob-sub-link" onclick="mobileNav('slaughter')">Slaughter House</button>
-          <button class="mob-sub-link" onclick="mobileNav('retail')">Retail &amp; POS</button>
-        </div>
-      </div>
-      <div class="mob-item">
-        <button class="mob-link" onclick="mobileNav('impl')">Implementation</button>
-      </div>
-      <div class="mob-item">
-        <button class="mob-link" onclick="mobileNav('main','why')">Why Us</button>
-      </div>
-      <button class="mob-cta" onclick="mobileNav('main','cta')" style="margin-top:28px;">Get in Touch</button>
-    </div>
-  </div>
 
   <div class="nav-links">
     <button class="nav-page-link" onclick="showPage('main','about')">About</button>
@@ -1249,6 +1213,56 @@
     <button class="nav-page-link" onclick="showPage('main','why')">Why Us</button>
     <button class="nav-page-link nav-cta" onclick="showPage('main','cta')">Get in Touch</button>
   </div>
+
+<!-- Mobile Menu - Full Screen Drawer (outside nav) -->
+<div id="mobile-menu" style="
+  position:fixed; top:0; left:0; right:0; bottom:0;
+  background:#060e1e;
+  z-index:9999;
+  display:none;
+  flex-direction:column;
+  overflow:hidden;
+">
+  <!-- Top bar -->
+  <div style="
+    display:flex; align-items:center; justify-content:space-between;
+    padding:0 28px; height:72px;
+    border-bottom:1px solid rgba(255,255,255,0.08);
+    flex-shrink:0;
+  ">
+    <span style="font-family:Constantia,Georgia,serif;font-size:14px;letter-spacing:3px;color:#fff;text-transform:uppercase;">CentOps Consulting</span>
+    <button onclick="closeMobileMenu()" style="background:none;border:none;color:#fff;font-size:28px;cursor:pointer;padding:4px 8px;line-height:1;">✕</button>
+  </div>
+  <!-- Menu items centered -->
+  <div style="flex:1;display:flex;flex-direction:column;justify-content:center;padding:0 40px;">
+    <div style="border-bottom:1px solid rgba(255,255,255,0.08);">
+      <button onclick="mobileNav('main','about')" style="font-family:Constantia,Georgia,serif;font-size:22px;color:#fff;background:none;border:none;padding:18px 0;width:100%;text-align:left;cursor:pointer;">About</button>
+    </div>
+    <div style="border-bottom:1px solid rgba(255,255,255,0.08);">
+      <button onclick="mobileNav('main','services')" style="font-family:Constantia,Georgia,serif;font-size:22px;color:#fff;background:none;border:none;padding:18px 0;width:100%;text-align:left;cursor:pointer;">Services</button>
+    </div>
+    <div style="border-bottom:1px solid rgba(255,255,255,0.08);">
+      <button onclick="toggleMobSub('mob-sol',this)" id="mob-sol-btn" style="font-family:Constantia,Georgia,serif;font-size:22px;color:#fff;background:none;border:none;padding:18px 0;width:100%;text-align:left;cursor:pointer;display:flex;justify-content:space-between;align-items:center;">
+        Solutions <span id="mob-sol-arrow" style="font-size:16px;color:#7a9cc5;transition:transform 0.3s;">›</span>
+      </button>
+      <div id="mob-sol" style="display:none;padding:0 0 8px 20px;border-left:2px solid rgba(46,204,113,0.4);margin-left:4px;">
+        <button onclick="mobileNav('shopify')" style="font-family:Constantia,Georgia,serif;font-size:16px;color:#7a9cc5;background:none;border:none;padding:11px 0;width:100%;text-align:left;cursor:pointer;display:block;">Odoo × Shopify</button>
+        <button onclick="mobileNav('restaurant')" style="font-family:Constantia,Georgia,serif;font-size:16px;color:#7a9cc5;background:none;border:none;padding:11px 0;width:100%;text-align:left;cursor:pointer;display:block;">Restaurant Management</button>
+        <button onclick="mobileNav('poultry')" style="font-family:Constantia,Georgia,serif;font-size:16px;color:#7a9cc5;background:none;border:none;padding:11px 0;width:100%;text-align:left;cursor:pointer;display:block;">Poultry Management</button>
+        <button onclick="mobileNav('slaughter')" style="font-family:Constantia,Georgia,serif;font-size:16px;color:#7a9cc5;background:none;border:none;padding:11px 0;width:100%;text-align:left;cursor:pointer;display:block;">Slaughter House</button>
+        <button onclick="mobileNav('retail')" style="font-family:Constantia,Georgia,serif;font-size:16px;color:#7a9cc5;background:none;border:none;padding:11px 0;width:100%;text-align:left;cursor:pointer;display:block;">Retail &amp; POS</button>
+      </div>
+    </div>
+    <div style="border-bottom:1px solid rgba(255,255,255,0.08);">
+      <button onclick="mobileNav('impl')" style="font-family:Constantia,Georgia,serif;font-size:22px;color:#fff;background:none;border:none;padding:18px 0;width:100%;text-align:left;cursor:pointer;">Implementation</button>
+    </div>
+    <div style="border-bottom:1px solid rgba(255,255,255,0.08);">
+      <button onclick="mobileNav('main','why')" style="font-family:Constantia,Georgia,serif;font-size:22px;color:#fff;background:none;border:none;padding:18px 0;width:100%;text-align:left;cursor:pointer;">Why Us</button>
+    </div>
+    <button onclick="mobileNav('main','cta')" style="font-family:Constantia,Georgia,serif;font-size:16px;color:#2ECC71;background:none;border:1px solid #2ECC71;padding:15px;width:100%;text-align:center;cursor:pointer;margin-top:28px;">Get in Touch</button>
+  </div>
+</div>
+
 </nav>
 
 <!-- ══════════ MAIN PAGE ══════════ -->
@@ -1842,13 +1856,12 @@ function initShopifyCanvas() {
 function toggleMobileMenu() {
   const menu = document.getElementById('mobile-menu');
   const btn = document.getElementById('hamburger');
-  const isOpen = menu.classList.contains('open');
-  if(isOpen) {
-    menu.classList.remove('open');
+  if(menu.style.display === 'flex') {
+    menu.style.display = 'none';
     btn.classList.remove('open');
     document.body.style.overflow = '';
   } else {
-    menu.classList.add('open');
+    menu.style.display = 'flex';
     btn.classList.add('open');
     document.body.style.overflow = 'hidden';
   }
@@ -1857,20 +1870,21 @@ function toggleMobileMenu() {
 function closeMobileMenu() {
   const menu = document.getElementById('mobile-menu');
   const btn = document.getElementById('hamburger');
-  menu.classList.remove('open');
-  btn.classList.remove('open');
+  if(menu) menu.style.display = 'none';
+  if(btn) btn.classList.remove('open');
   document.body.style.overflow = '';
 }
 
 function toggleMobSub(id, btn) {
   const sub = document.getElementById(id);
-  const isOpen = sub.classList.contains('open');
-  // Close all submenus first
-  document.querySelectorAll('.mob-submenu').forEach(s => s.classList.remove('open'));
-  document.querySelectorAll('.mob-link').forEach(b => b.classList.remove('sub-open'));
-  if(!isOpen) {
-    sub.classList.add('open');
-    btn.classList.add('sub-open');
+  const arrow = document.getElementById('mob-sol-arrow');
+  if(!sub) return;
+  if(sub.style.display === 'block') {
+    sub.style.display = 'none';
+    if(arrow) arrow.style.transform = 'rotate(0deg)';
+  } else {
+    sub.style.display = 'block';
+    if(arrow) arrow.style.transform = 'rotate(90deg)';
   }
 }
 
