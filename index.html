@@ -1177,6 +1177,118 @@
       .nav-hamburger { display: flex; }
       .nav-links { display: none !important; }
     }
+
+    /* ════════════════════════════════
+       MOBILE RESPONSIVE — ALL PAGES
+    ════════════════════════════════ */
+    @media (max-width: 768px) {
+
+      /* Global section padding */
+      section, .r-section, .p-section, .sl-section, .bk-section { padding: 60px 24px !important; }
+
+      /* ── SHOPIFY PAGE ── */
+      #page-shopify .hero-inner { grid-template-columns: 1fr !important; gap: 40px !important; }
+      #page-shopify .hero-right { display: none !important; }
+      #page-shopify .stats-strip { padding: 24px 20px !important; }
+      #page-shopify .stats-strip-inner { grid-template-columns: repeat(2,1fr) !important; }
+      #page-shopify .overview-inner { grid-template-columns: 1fr !important; gap: 32px !important; }
+      #page-shopify .overview-right { padding-top: 0 !important; }
+      #page-shopify .features-grid { grid-template-columns: repeat(2,1fr) !important; }
+      #page-shopify .flows-grid { grid-template-columns: 1fr !important; }
+      #page-shopify .modules-grid { grid-template-columns: 1fr !important; }
+      #page-shopify .partners-inner { grid-template-columns: 1fr !important; gap: 40px !important; }
+      #page-shopify #shopify-hero { padding: 100px 24px 60px !important; }
+
+      /* ── RESTAURANT PAGE ── */
+      #page-restaurant .rest-hero-inner { grid-template-columns: 1fr !important; gap: 40px !important; }
+      #page-restaurant .rest-chain { display: none !important; }
+      #page-restaurant .rest-stats-inner { grid-template-columns: repeat(2,1fr) !important; }
+      #page-restaurant .r-features-grid { grid-template-columns: repeat(2,1fr) !important; }
+      #page-restaurant .r-workflow { grid-template-columns: repeat(3,1fr) !important; }
+      #page-restaurant .r-two-col { grid-template-columns: 1fr !important; gap: 32px !important; }
+      #page-restaurant #rest-hero { padding: 100px 24px 60px !important; }
+
+      /* ── POULTRY PAGE ── */
+      #page-poultry .p-hero-inner { grid-template-columns: 1fr !important; gap: 40px !important; }
+      #page-poultry .p-lifecycle { display: none !important; }
+      #page-poultry .p-stats-inner { grid-template-columns: repeat(3,1fr) !important; }
+      #page-poultry .p-pipeline { grid-template-columns: repeat(3,1fr) !important; gap: 16px !important; }
+      #page-poultry .p-pipeline::before { display: none !important; }
+      #page-poultry .p-feat-grid { grid-template-columns: repeat(2,1fr) !important; }
+      #page-poultry .p-compliance { grid-template-columns: 1fr !important; gap: 24px !important; }
+      #page-poultry .p-track-grid { grid-template-columns: 1fr !important; }
+      #page-poultry #poultry-hero { padding: 100px 24px 60px !important; }
+
+      /* ── SLAUGHTER PAGE ── */
+      #page-slaughter .sl-hero-inner { grid-template-columns: 1fr !important; gap: 40px !important; }
+      #page-slaughter .sl-transform { display: none !important; }
+      #page-slaughter .sl-stats-inner { grid-template-columns: repeat(3,1fr) !important; }
+      #page-slaughter .sl-pipeline { grid-template-columns: repeat(4,1fr) !important; gap: 8px !important; }
+      #page-slaughter .sl-pipeline::before { display: none !important; }
+      #page-slaughter .sl-category-grid { grid-template-columns: 1fr !important; }
+      #page-slaughter .sl-feat-grid { grid-template-columns: repeat(2,1fr) !important; }
+      #page-slaughter .sl-compliance { grid-template-columns: 1fr !important; gap: 20px !important; }
+      #page-slaughter .sl-two-col { grid-template-columns: 1fr !important; gap: 32px !important; }
+      #page-slaughter #sl-hero { padding: 100px 24px 60px !important; }
+
+      /* ── RETAIL PAGE ── */
+      #page-retail .rt-hero-inner { grid-template-columns: 1fr !important; gap: 40px !important; }
+      #page-retail .rt-hierarchy { display: none !important; }
+      #page-retail .rt-stats-inner { grid-template-columns: repeat(2,1fr) !important; }
+      #page-retail .rt-tiers { grid-template-columns: 1fr !important; }
+      #page-retail .rt-feat-grid { grid-template-columns: repeat(2,1fr) !important; }
+      #page-retail .rt-reporting { grid-template-columns: 1fr !important; gap: 32px !important; }
+      #page-retail #retail-hero { padding: 100px 24px 60px !important; }
+
+      /* ── BOOKKEEPING PAGE ── */
+      #page-bookkeeping .bk-hero-inner { grid-template-columns: 1fr !important; gap: 40px !important; }
+      #page-bookkeeping .bk-flow { display: none !important; }
+      #page-bookkeeping .bk-stats-inner { grid-template-columns: repeat(2,1fr) !important; }
+      #page-bookkeeping .bk-how-grid { grid-template-columns: 1fr !important; }
+      #page-bookkeeping .bk-scope-grid { grid-template-columns: 1fr !important; }
+      #page-bookkeeping .bk-compare { grid-template-columns: 1fr !important; }
+      #page-bookkeeping .bk-pricing-grid { grid-template-columns: 1fr !important; }
+      #page-bookkeeping #bk-hero { padding: 100px 24px 60px !important; }
+
+      /* ── IMPLEMENTATION PAGE ── */
+      #page-impl .impl-hero-inner { padding: 100px 24px 60px !important; }
+      .h-phase-strip { padding: 12px 16px !important; overflow-x: auto !important; }
+      .h-phase-pills { flex-wrap: nowrap !important; }
+      .h-pill { font-size: 8px !important; padding: 4px 10px !important; white-space: nowrap !important; }
+
+      /* ── SHARED HERO TITLES ── */
+      .rest-hero-title, .p-hero-title, .sl-hero-title, .rt-hero-title, .bk-hero-title {
+        font-size: clamp(36px,8vw,56px) !important;
+      }
+
+      /* ── SHARED SECTION TITLES ── */
+      .r-title, .p-title, .sl-title, .rt-title, .bk-title {
+        font-size: clamp(28px,6vw,44px) !important;
+      }
+
+      /* ── ALL HERO TAGLINES ── */
+      .rest-hero-tagline, .p-hero-tagline, .sl-hero-tagline, .rt-hero-tagline, .bk-hero-tagline {
+        font-size: 15px !important;
+      }
+
+      /* ── STATS NUMBERS ── */
+      .rst-num, .p-st-num, .sl-st-num, .rt-st-num, .bk-st-num {
+        font-size: 28px !important;
+      }
+
+      /* ── PIPELINE STEPS ── */
+      .sl-pipe-label, .p-pipe-label, .r-wf-label {
+        font-size: 10px !important;
+      }
+      .sl-pipe-sub, .p-pipe-sub, .r-wf-sub {
+        font-size: 8px !important;
+      }
+      .sl-pipe-icon, .p-pipe-icon { font-size: 16px !important; }
+
+      /* Footer */
+      .footer-inner { flex-direction: column !important; align-items: flex-start !important; gap: 20px !important; }
+      footer { padding: 32px 24px !important; }
+    }
   </style>
 </head>
 <body>
