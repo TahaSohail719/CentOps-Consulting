@@ -128,12 +128,16 @@
     .cta-inner { max-width: 700px; margin: 0 auto; }
     .cta-headline { font-family: 'Constantia','Georgia',serif; font-size: clamp(42px,5.5vw,72px); line-height: 1.05; margin-bottom: 20px; font-weight: 400; }
     .cta-sub { font-size: 15px; color: var(--muted); line-height: 1.85; margin-bottom: 40px; }
-    .cta-email { display: flex; max-width: 440px; margin: 0 auto; }
-    .cta-email input { flex: 1; background: rgba(255,255,255,0.05); border: 1px solid var(--border); border-right: none; color: var(--white); padding: 14px 20px; font-size: 14px; font-family: 'Constantia','Georgia',serif; outline: none; }
-    .cta-email input::placeholder { color: var(--muted); }
-    .cta-email input:focus { border-color: rgba(46,204,113,0.4); }
-    .cta-email button { background: var(--green); color: var(--navy-dark); border: none; padding: 14px 28px; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; font-family: 'Constantia','Georgia',serif; transition: background 0.2s; }
-    .cta-email button:hover { background: #25b864; }
+    .cta-form { max-width: 520px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+    .cta-form input, .cta-form textarea { width: 100%; background: rgba(255,255,255,0.05); border: 1px solid var(--border); color: var(--white); padding: 14px 20px; font-size: 14px; font-family: 'Constantia','Georgia',serif; outline: none; box-sizing: border-box; transition: border-color 0.2s; }
+    .cta-form input::placeholder, .cta-form textarea::placeholder { color: var(--muted); }
+    .cta-form input:focus, .cta-form textarea:focus { border-color: rgba(46,204,113,0.4); }
+    .cta-form textarea { resize: vertical; min-height: 130px; }
+    .cta-form button { background: var(--green); color: var(--navy-dark); border: none; padding: 15px 28px; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; font-family: 'Constantia','Georgia',serif; transition: background 0.2s; width: 100%; }
+    .cta-form button:hover { background: #25b864; }
+    .cta-form button:disabled { opacity: 0.6; cursor: not-allowed; }
+    .cta-success { display: none; margin-top: 14px; font-size: 13px; color: var(--green); border: 1px solid rgba(46,204,113,0.3); background: rgba(46,204,113,0.06); padding: 14px 18px; letter-spacing: 0.5px; line-height: 1.6; }
+    .cta-email { display: none; }
 
     footer { background: var(--navy-dark); border-top: 2px solid var(--green); padding: 48px 60px; }
     .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px; }
@@ -1502,8 +1506,47 @@
         <div class="section-eyebrow" style="justify-content:center;">Let's Talk</div>
         <h2 class="cta-headline reveal">Ready to Streamline<br>Your Operations?</h2>
         <p class="cta-sub reveal">Tell us what you're building. We'll tell you how to make it run automatically.</p>
-        <div class="cta-email reveal"><input type="email" placeholder="your@email.com"/><button>Get Started</button></div>
-        <p style="margin-top:20px;font-size:13px;color:var(--muted);letter-spacing:1px;">Or email us at <a href="mailto:info@centopsconsulting.com" style="color:var(--green);text-decoration:none;">info@centopsconsulting.com</a></p>
+        <form class="cta-form reveal" id="ctaForm">
+          <input type="email" name="email" placeholder="Your email address" required />
+          <input type="text" name="subject" placeholder="Subject" required />
+          <textarea name="message" placeholder="Tell us what you're building..." required></textarea>
+          <input type="hidden" name="access_key" value="bf5f830b-b574-4501-ac9f-ad133b544880" />
+          <input type="hidden" name="from_name" value="CentOps Website" />
+          <input type="hidden" name="redirect" value="false" />
+          <button type="submit" id="ctaBtn">Send Message</button>
+          <div class="cta-success" id="ctaSuccess">Your message has been delivered and our team will contact you in the next 24 hours. Hold Tight!</div>
+        </form>
+        <p style="margin-top:24px;font-size:13px;color:var(--muted);letter-spacing:1px;">Or email us at <a href="mailto:info@centopsconsulting.com" style="color:var(--green);text-decoration:none;">info@centopsconsulting.com</a></p>
+
+        <script>
+          document.getElementById('ctaForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const btn = document.getElementById('ctaBtn');
+            const success = document.getElementById('ctaSuccess');
+            btn.disabled = true;
+            btn.textContent = 'Sending...';
+            try {
+              const res = await fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                body: JSON.stringify(Object.fromEntries(new FormData(this)))
+              });
+              const data = await res.json();
+              if (data.success) {
+                success.style.display = 'block';
+                this.reset();
+                btn.textContent = 'Send Message';
+                btn.disabled = false;
+              } else {
+                btn.textContent = 'Try Again';
+                btn.disabled = false;
+              }
+            } catch(err) {
+              btn.textContent = 'Try Again';
+              btn.disabled = false;
+            }
+          });
+        </script>
       </div>
     </div>
   </section>
