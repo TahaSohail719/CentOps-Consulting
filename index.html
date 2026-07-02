@@ -1560,6 +1560,7 @@
         <button onclick="showPage('main','services')">Services</button>
         <button onclick="showPage('impl')">Implementation</button>
         <button onclick="showPage('main','cta')">Contact</button>
+        <button onclick="showPage('partner')">Partner Program</button>
       </div>
       <div class="footer-copy">© 2025 CentOps Consulting. All rights reserved.</div>
     </div>
@@ -1638,6 +1639,7 @@
         <button onclick="showPage('main','services')">Services</button>
         <button onclick="showPage('impl')">Implementation</button>
         <button onclick="showPage('main','cta')">Contact</button>
+        <button onclick="showPage('partner')">Partner Program</button>
       </div>
       <div class="footer-copy">© 2025 CentOps Consulting. All rights reserved.</div>
     </div>
@@ -1669,6 +1671,7 @@ function showPage(page, anchor) {
   if(page === 'slaughter') { initSlaughterCanvas(); initReveal(); }
   if(page === 'retail') { initRetailCanvas(); initReveal(); }
   if(page === 'bookkeeping') { initBookkeepingCanvas(); initReveal(); }
+  if(page === 'partner') { initReveal(); }
 }
 
 /* ── Main hero dot canvas ── */
@@ -2340,6 +2343,7 @@ initClientBubbles();
       <a href="centops_consulting.html#services">Services</a>
       <a href="implementation.html">Implementation</a>
       <a href="centops_consulting.html#cta">Contact</a>
+      <a href="#" onclick="showPage('partner');return false;">Partner Program</a>
     </div>
     <div class="footer-copy">© 2025 CentOps Consulting. All rights reserved.</div>
   </div>
@@ -2547,6 +2551,7 @@ initClientBubbles();
         <button onclick="showPage('main','services')">Services</button>
         <button onclick="showPage('impl')">Implementation</button>
         <button onclick="showPage('main','cta')">Contact</button>
+        <button onclick="showPage('partner')">Partner Program</button>
       </div>
       <div class="footer-copy">© 2025 CentOps Consulting. All rights reserved.</div>
     </div>
@@ -2831,6 +2836,7 @@ initClientBubbles();
         <button onclick="showPage('main','services')">Services</button>
         <button onclick="showPage('impl')">Implementation</button>
         <button onclick="showPage('main','cta')">Contact</button>
+        <button onclick="showPage('partner')">Partner Program</button>
       </div>
       <div class="footer-copy">© 2025 CentOps Consulting. All rights reserved.</div>
     </div>
@@ -3123,6 +3129,7 @@ initClientBubbles();
         <button onclick="showPage('main','services')">Services</button>
         <button onclick="showPage('impl')">Implementation</button>
         <button onclick="showPage('main','cta')">Contact</button>
+        <button onclick="showPage('partner')">Partner Program</button>
       </div>
       <div class="footer-copy">© 2025 CentOps Consulting. All rights reserved.</div>
     </div>
@@ -3374,6 +3381,7 @@ initClientBubbles();
         <button onclick="showPage('main','services')">Services</button>
         <button onclick="showPage('impl')">Implementation</button>
         <button onclick="showPage('main','cta')">Contact</button>
+        <button onclick="showPage('partner')">Partner Program</button>
       </div>
       <div class="footer-copy">© 2025 CentOps Consulting. All rights reserved.</div>
     </div>
@@ -3589,10 +3597,107 @@ initClientBubbles();
         <button onclick="showPage('main','services')">Services</button>
         <button onclick="showPage('impl')">Implementation</button>
         <button onclick="showPage('main','cta')">Contact</button>
+        <button onclick="showPage('partner')">Partner Program</button>
       </div>
       <div class="footer-copy">© 2025 CentOps Consulting. All rights reserved.</div>
     </div>
   </footer>
+</div>
+
+<!-- ══════════ PARTNER PROGRAM PAGE ══════════ -->
+<div id="page-partner" class="page">
+
+  <section style="min-height:100vh; background:var(--navy); padding:120px 60px 80px; box-sizing:border-box;">
+    <div style="max-width:680px; margin:0 auto;">
+
+      <div class="section-eyebrow reveal" style="margin-bottom:20px;">Partner With Us</div>
+      <h1 style="font-family:'Constantia','Georgia',serif; font-size:clamp(36px,4.5vw,60px); font-weight:400; line-height:1.1; color:var(--white); margin-bottom:32px;" class="reveal">
+        Have a Client.<br>We'll Handle the Rest.
+      </h1>
+
+      <p style="font-size:16px; color:var(--off-white); line-height:1.9; margin-bottom:20px;" class="reveal">
+        If you know a business that needs ERP implementation, process automation, or operational consulting — we want to hear from you. You bring the connection, we do the heavy lifting: scoping, delivery, and everything in between.
+      </p>
+      <p style="font-size:16px; color:var(--off-white); line-height:1.9; margin-bottom:56px;" class="reveal">
+        Our partner program is built for consultants, advisors, agency owners, and anyone with a trusted relationship in the business world. If we successfully deliver a project you introduce us to, you earn a meaningful referral reward — no ongoing work required on your end.
+      </p>
+
+      <div style="border-top:1px solid var(--border); padding-top:48px;" class="reveal">
+        <p style="font-size:11px; letter-spacing:3px; text-transform:uppercase; color:var(--green); margin-bottom:28px;">Get in Touch</p>
+        <h3 style="font-family:'Constantia','Georgia',serif; font-size:22px; font-weight:400; color:var(--white); margin-bottom:32px;">Tell us about the opportunity.</h3>
+
+        <form id="partnerForm" style="display:flex; flex-direction:column; gap:12px; max-width:520px;">
+          <input type="email" name="email" placeholder="Your email address" required
+            style="background:rgba(255,255,255,0.05); border:1px solid var(--border); color:var(--white); padding:14px 20px; font-size:14px; font-family:'Constantia','Georgia',serif; outline:none; transition:border-color 0.2s; box-sizing:border-box; width:100%;"/>
+          <input type="text" name="subject" placeholder="Subject" required
+            style="background:rgba(255,255,255,0.05); border:1px solid var(--border); color:var(--white); padding:14px 20px; font-size:14px; font-family:'Constantia','Georgia',serif; outline:none; transition:border-color 0.2s; box-sizing:border-box; width:100%;"/>
+          <textarea name="message" placeholder="Tell us about the client and what they need..." required rows="5"
+            style="background:rgba(255,255,255,0.05); border:1px solid var(--border); color:var(--white); padding:14px 20px; font-size:14px; font-family:'Constantia','Georgia',serif; outline:none; transition:border-color 0.2s; resize:vertical; box-sizing:border-box; width:100%;"></textarea>
+          <input type="hidden" name="access_key" value="bf5f830b-b574-4501-ac9f-ad133b544880"/>
+          <input type="hidden" name="from_name" value="CentOps Partner Program"/>
+          <input type="hidden" name="subject" value="New Partner Program Enquiry"/>
+          <input type="hidden" name="redirect" value="false"/>
+          <button type="submit" id="partnerBtn"
+            style="background:var(--green); color:var(--navy-dark); border:none; padding:15px 28px; font-size:11px; letter-spacing:2px; text-transform:uppercase; cursor:pointer; font-family:'Constantia','Georgia',serif; transition:background 0.2s; width:100%;">
+            Send Message
+          </button>
+          <div id="partnerSuccess" style="display:none; margin-top:8px; font-size:13px; color:var(--green); border:1px solid rgba(46,204,113,0.3); background:rgba(46,204,113,0.06); padding:14px 18px; letter-spacing:0.5px; line-height:1.6;">
+            Your message has been delivered and our team will contact you in the next 24 hours. Hold Tight!
+          </div>
+        </form>
+
+        <script>
+          document.getElementById('partnerForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const btn = document.getElementById('partnerBtn');
+            const success = document.getElementById('partnerSuccess');
+            btn.disabled = true;
+            btn.textContent = 'Sending...';
+            btn.style.opacity = '0.6';
+            try {
+              const res = await fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                body: JSON.stringify(Object.fromEntries(new FormData(this)))
+              });
+              const data = await res.json();
+              if (data.success) {
+                success.style.display = 'block';
+                this.reset();
+                btn.textContent = 'Send Message';
+                btn.disabled = false;
+                btn.style.opacity = '1';
+              } else {
+                btn.textContent = 'Try Again';
+                btn.disabled = false;
+                btn.style.opacity = '1';
+              }
+            } catch(err) {
+              btn.textContent = 'Try Again';
+              btn.disabled = false;
+              btn.style.opacity = '1';
+            }
+          });
+        </script>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <svg width="72" height="46" viewBox="0 0 72 46" fill="none"><polyline points="22,4 3,4 3,34 22,34" stroke="white" stroke-width="3.5" fill="none" stroke-linejoin="miter" stroke-linecap="square"/><polyline points="46,4 27,4 27,34 46,34" stroke="white" stroke-width="3.5" fill="none" stroke-linejoin="miter" stroke-linecap="square"/><circle cx="57" cy="38" r="4" fill="#2ECC71"/></svg>
+      <div class="footer-links">
+        <button onclick="showPage('main','about')">About</button>
+        <button onclick="showPage('main','services')">Services</button>
+        <button onclick="showPage('impl')">Implementation</button>
+        <button onclick="showPage('main','cta')">Contact</button>
+        <button onclick="showPage('partner')">Partner Program</button>
+      </div>
+      <div class="footer-copy">© 2025 CentOps Consulting. All rights reserved.</div>
+    </div>
+  </footer>
+
 </div>
 
 </body>
