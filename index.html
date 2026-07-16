@@ -99,7 +99,7 @@
     .sa-trigger { display: flex; align-items: center; gap: 28px; padding: 28px 0; cursor: pointer; width: 100%; background: none; border: none; text-align: left; color: inherit; transition: opacity 0.2s; position: relative; }
     .sa-trigger:hover .sa-title { color: var(--green); }
     .sa-num { font-family: 'Constantia','Georgia',serif; font-size: 36px; line-height: 1; color: var(--green); font-weight: 400; min-width: 52px; }
-    .sa-title { font-size: 20px; font-weight: 400; color: var(--white); flex: 1; line-height: 1.2; transition: color 0.2s; }
+    .sa-title { font-family: 'Constantia','Georgia',serif; font-size: 20px; font-weight: 400; color: var(--white); flex: 1; line-height: 1.2; transition: color 0.2s; }
     .sa-icon { width: 36px; height: 36px; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: border-color 0.2s, transform 0.35s; }
     .sa-icon svg { width: 14px; height: 14px; stroke: var(--green); fill: none; stroke-width: 2; stroke-linecap: round; transition: transform 0.35s; }
     .sa-item.open .sa-icon { border-color: var(--green); }
@@ -1508,6 +1508,22 @@
         <div class="sa-item">
           <button class="sa-trigger" onclick="toggleService(this)">
             <span class="sa-num">03</span>
+            <span class="sa-title">Process Excellence</span>
+            <span class="sa-icon"><svg viewBox="0 0 14 14"><line x1="7" y1="1" x2="7" y2="13"/><line x1="1" y1="7" x2="13" y2="7"/></svg></span>
+          </button>
+          <div class="sa-body">
+            <div class="sa-body-inner">
+              <div>
+                <p class="sa-desc">Process Excellence focuses on designing and optimizing business processes to improve efficiency, consistency, and organizational performance. We help organizations establish structured operating systems through SOPs, process mapping, job descriptions, KPIs, approval and authority matrices, and governance frameworks — enabling streamlined operations, clear accountability, and sustainable growth.</p>
+                <div class="sa-tags"><span class="service-tag">SOPs</span><span class="service-tag">Process Mapping</span><span class="service-tag">KPIs</span><span class="service-tag">Governance</span><span class="service-tag">Org Design</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sa-item">
+          <button class="sa-trigger" onclick="toggleService(this)">
+            <span class="sa-num">04</span>
             <span class="sa-title">Business Process Automation</span>
             <span class="sa-icon"><svg viewBox="0 0 14 14"><line x1="7" y1="1" x2="7" y2="13"/><line x1="1" y1="7" x2="13" y2="7"/></svg></span>
           </button>
@@ -1523,7 +1539,7 @@
 
         <div class="sa-item">
           <button class="sa-trigger" onclick="toggleService(this)">
-            <span class="sa-num">04</span>
+            <span class="sa-num">05</span>
             <span class="sa-title">Odoo Bookkeeping &amp; Financial Operations</span>
             <span class="sa-icon"><svg viewBox="0 0 14 14"><line x1="7" y1="1" x2="7" y2="13"/><line x1="1" y1="7" x2="13" y2="7"/></svg></span>
           </button>
@@ -1532,22 +1548,6 @@
               <div>
                 <p class="sa-desc">We manage your books directly inside your Odoo — recording transactions, reconciling accounts, processing payroll, and delivering monthly financial statements. Same team, same system, zero handover.</p>
                 <div class="sa-tags"><span class="service-tag">Bookkeeping</span><span class="service-tag">Reconciliation</span><span class="service-tag">Payroll</span><span class="service-tag">Reporting</span></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="sa-item">
-          <button class="sa-trigger" onclick="toggleService(this)">
-            <span class="sa-num">05</span>
-            <span class="sa-title">Process Excellence</span>
-            <span class="sa-icon"><svg viewBox="0 0 14 14"><line x1="7" y1="1" x2="7" y2="13"/><line x1="1" y1="7" x2="13" y2="7"/></svg></span>
-          </button>
-          <div class="sa-body">
-            <div class="sa-body-inner">
-              <div>
-                <p class="sa-desc">Process Excellence focuses on designing and optimizing business processes to improve efficiency, consistency, and organizational performance. We help organizations establish structured operating systems through SOPs, process mapping, job descriptions, KPIs, approval and authority matrices, and governance frameworks — enabling streamlined operations, clear accountability, and sustainable growth.</p>
-                <div class="sa-tags"><span class="service-tag">SOPs</span><span class="service-tag">Process Mapping</span><span class="service-tag">KPIs</span><span class="service-tag">Governance</span><span class="service-tag">Org Design</span></div>
               </div>
             </div>
           </div>
